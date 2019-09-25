@@ -90,6 +90,39 @@ count(word, sort=TRUE) %>%
 
 summary(dracula_sentiment)
 
+# BIGRAMS and TRIGRAMS-----------------------------------------------------------------
+
+#create bigram/trigram
+dracula_bigrams <- dracula %>%
+  unnest_tokens(bigram, text, token = "ngrams", n = 2)
+
+dracula_bigrams %>%
+  count(bigram, sort = TRUE)
+
+dracula_trigrams <- dracula %>%
+  unnest_tokens(trigram, text, token = "ngrams", n = 3)
+
+dracula_trigrams %>%
+  count(trigram, sort = TRUE)
+
+#separate bigram/trigram into separate columns, remove stop words from each column, then count
+library(tidyr)
+
+dracula_bigrams %>%
+  separate(bigram, c('word1','word2'),sep = " ") %>%
+  filter(!word1 %in% stop_words$word) %>%
+  filter(!word2 %in% stop_words$word) %>%
+  count(word1, word2, sort = TRUE)
+
+dracula_trigrams %>%
+  separate(trigram, c('word1','word2','word3'),sep = " ") %>%
+  filter(!word1 %in% stop_words$word) %>%
+  filter(!word2 %in% stop_words$word) %>%
+  filter(!word3 %in% stop_words$word) %>%
+  count(word1, word2, word3, sort = TRUE)
+
+# WORD FREQUENCY ----------------------------------------------------------
+
 
 
 
