@@ -143,7 +143,7 @@ dracula_chapter_titles <- dracula_chapter_titles %>%
 #filter just chapter numbers
 dracula_chapter_titles$chapter
 
-
+#summary text from https://www.coursehero.com/lit/Dracula/summaries/
 chapter_summary <- 
   c("Harker arrives in Transylvania to meet Dracula and assist him as a lawyer.",
     "Harker realizes he is Dracula's prisoner.",
