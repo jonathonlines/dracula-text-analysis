@@ -3,11 +3,6 @@
 #The gutenbergr package provides access to the public domain works 
 ##from the Project Gutenberg collection.
 
-
-install.packages("gutenbergr")
-install.packages("tidytext")
-install.packages("textdata")
-
 library(gutenbergr)
 library(dplyr)
 library(tidytext)
